@@ -1,0 +1,23 @@
+name = "uzbek-test-bot"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# --- D1 database binding ---
+# Avval quyidagi buyruq bilan bazani yarating:
+#   npx wrangler d1 create uzbek-test-bot-db
+# Natijada chiqqan database_id ni pastga qo'ying.
+[[d1_databases]]
+binding = "DB"
+database_name = "uzbek-test-bot-db"
+database_id = "PUT-YOUR-DATABASE-ID-HERE"
+
+# --- Muhit o'zgaruvchilari (env vars) ---
+[vars]
+BOT_TOKEN = "PUT-YOUR-BOT-TOKEN-HERE"
+OWNER_ID = "PUT-YOUR-TELEGRAM-USER-ID-HERE"
+WEBHOOK_SECRET = "choose-a-random-secret-string"
+
+# --- Har daqiqada ishlaydigan fon vazifasi ---
+# Muddati tugagan testlarni yopish, 5 daqiqa qolganda eslatma yuborish uchun
+[triggers]
+crons = ["* * * * *"]
