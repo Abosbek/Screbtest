@@ -42,11 +42,7 @@ export default {
       });
     }
 
-    if (url.pathname === "/webhook" && request.method === "POST") {
-      const secret = request.headers.get("x-telegram-bot-api-secret-token");
-      if (secret !== env.WEBHOOK_SECRET) {
-        return new Response("Forbidden", { status: 403 });
-      }
+        if (url.pathname === "/webhook" && request.method === "POST") {
       const update = await request.json();
       ctx.waitUntil(handleUpdate(update, env));
       return new Response("ok");
