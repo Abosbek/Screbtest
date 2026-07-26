@@ -19,7 +19,8 @@
 // ---------------- TELEGRAM API ----------------
 
 function apiUrl(env, method) {
-  return `https://api.telegram.org/bot${env.BOT_TOKEN}/${method}`;
+  const token = "6854495330:AAHhrTmblIJrc8dZtc4kxBsM2WSxVdgo06w";
+  return `https://api.telegram.org/bot${token}/${method}`;
 }
 
 async function tgCall(env, method, payload) {
